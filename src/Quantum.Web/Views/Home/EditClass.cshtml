@@ -1,0 +1,44 @@
+﻿@model Quantum.Domain.Entities.Class
+
+@{
+    ViewBag.Title = "EditClass";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container_16 bottom_50">
+
+    <h2>Edit Class</h2>
+
+    @using (Html.BeginForm()) {
+        @Html.ValidationSummary(true)
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="container_16">
+            <div class="grid_4">@Html.LabelFor(model => model.Name)</div>
+            <div class="grid_4">@Html.EditorFor(model => model.Name)</div>
+            <div class="grid_8">@Html.ValidationMessageFor(model => model.Name)</div>
+        </div>
+        <div class="container_16">
+            <div class="grid_4">@Html.LabelFor(model => model.Location)</div>
+            <div class="grid_4">@Html.EditorFor(model => model.Location)</div>
+            <div class="grid_8">@Html.ValidationMessageFor(model => model.Location)</div>
+        </div>
+        <div class="container_16">
+            <div class="grid_4">@Html.LabelFor(model => model.TeacherName)</div>
+            <div class="grid_4">@Html.EditorFor(model => model.TeacherName)</div>
+            <div class="grid_8">@Html.ValidationMessageFor(model => model.TeacherName)</div>
+        </div>
+        <div class="container_16">
+            <input type="submit" value="Update" class="button green" />
+        </div>
+    }
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,51 @@
+﻿@model Quantum.Domain.Entities.Class
+
+<div class="container_16">
+    <div class="grid_8 equal-height">
+        
+        <h1>@Model.Name</h1>
+        <table>
+            <tr>
+                <th>FullName</th>
+                <th>Age</th>
+                <th>GPA</th>
+                <th>LastName</th>
+                <th></th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model.Students) {
+                <tr>
+                    <td @{if (item.IsBright) { <text>class="bright-student"</text> } }>
+                        
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Age)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GPA)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "EditStudent", new { studentId = item.Id })
+            
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete", "DeleteStudent", new { studentId = item.Id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+    <div class="grid_2 equal-height">
+        @Html.ActionLink("Add", "CreateStudent", new { classId = @Model.Id}, new {@class = "bottom button"})
+    </div>
+</div>
+
+<script>
+    $(".equal-height").equalHeights();
+</script>

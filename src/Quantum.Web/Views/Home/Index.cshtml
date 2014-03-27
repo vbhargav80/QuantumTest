@@ -1,0 +1,82 @@
+﻿@using Quantum.Domain.Entities
+@model System.Collections.Generic.List<Quantum.Domain.Entities.Class>
+
+@{
+    ViewBag.Title = "Classes";
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<div id="classes-container">
+    <div class="container_16 bottom_50">
+        <div class="grid_8 equal-height">
+            <h1>Classes</h1>
+            <table>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Location
+                    </th>
+                    <th>
+                        TeacherName
+                    </th>
+                    <th></th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr data-detail-url='@Url.Action("ClassDetail", new {classId = @item.Id})'>
+                        <td class="class-table-cell">
+                            @Html.Hidden("classId", @item.Id)
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td class="class-table-cell">
+                            @Html.DisplayFor(modelItem => item.Location)
+                        </td>
+                        <td class="class-table-cell">
+                            @Html.DisplayFor(modelItem => item.TeacherName)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditClass", new {classId = item.Id})
+            
+                        </td>
+                        <td>
+                            @Html.ActionLink("Delete", "DeleteClass", new {classId = item.Id})
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+        
+        <div class="grid_2 equal-height">
+            @Html.ActionLink("Add", "CreateClass", null, new {@class = "bottom button"})
+            
+        </div>
+    </div>
+</div>
+
+<div id="class-students-container" class="container_16 bottom_50">
+    
+</div>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+            $(".equal-height").equalHeights();
+            $('.class-table-cell').click(function () {
+                var url = $(this).parent('tr').attr('data-detail-url');
+                $.get(url, function(response) {
+                    $('#class-students-container').html(response);
+                });
+            });
+
+            $("#btnAddClass").click(function () {
+                window.location.replace('@Url.Action("CreateClass")');
+            });
+        });
+    </script>
+}

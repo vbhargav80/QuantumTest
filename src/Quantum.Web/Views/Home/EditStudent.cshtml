@@ -1,0 +1,51 @@
+﻿@model Quantum.Domain.Entities.Student
+
+@{
+    ViewBag.Title = "EditStudent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container_16 bottom_50">
+
+    <h2>Edit Class</h2>
+
+    @using (Html.BeginForm()) {
+        @Html.ValidationSummary(true)
+
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.ClassId)
+
+        <div class="container_16">
+            <div class="grid_4">@Html.LabelFor(model => model.FirstName)</div>
+            <div class="grid_4">@Html.EditorFor(model => model.FirstName)</div>
+            <div class="grid_8">@Html.ValidationMessageFor(model => model.FirstName)</div>
+        </div>
+        <div class="container_16">
+            <div class="grid_4">@Html.LabelFor(model => model.LastName)</div>
+            <div class="grid_4">@Html.EditorFor(model => model.LastName)</div>
+            <div class="grid_8">@Html.ValidationMessageFor(model => model.LastName)</div>
+        </div>
+        <div class="container_16">
+            <div class="grid_4">@Html.LabelFor(model => model.Age)</div>
+            <div class="grid_4">@Html.EditorFor(model => model.Age)</div>
+            <div class="grid_8">@Html.ValidationMessageFor(model => model.Age)</div>
+        </div>
+        <div class="container_16">
+            <div class="grid_4">@Html.LabelFor(model => model.GPA)</div>
+            <div class="grid_4">@Html.EditorFor(model => model.GPA)</div>
+            <div class="grid_8">@Html.ValidationMessageFor(model => model.GPA)</div>
+        </div>
+        <div class="container_16">
+            <input type="submit" value="Update" class="button green" />
+        </div>
+    }
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

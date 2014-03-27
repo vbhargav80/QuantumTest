@@ -1,0 +1,116 @@
+﻿body {
+    font-family: 'Georgia', 'Segoe UI', 'Helvetica Neue', 'Trebuchet MS', Verdana;
+}
+
+h1 { font-size: 24px;line-height: 58px;}
+.main-logo {
+    width: 140px;
+    height: 55px;
+}
+
+table, th, tr, td {
+    border: 1px solid;
+}
+
+th, td { padding: 5px;}
+
+td.class-table-cell { cursor: pointer;}
+
+#content {
+    background-color: #efefef;
+}
+
+.top_20 {
+    margin-top: 20px;
+}
+
+.top_50 {
+    margin-top: 50px;
+}
+
+.bottom_50 {
+    padding-bottom: 50px;
+}
+
+.button {
+	background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 10px;
+  text-decoration: none;
+     
+}
+
+.button:hover {
+	background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+/*Step 3: Link Styling*/
+a.button {
+    text-decoration: none;
+}
+
+.dxg-title {
+    padding-bottom: 10px;
+}
+
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('http://i.stack.imgur.com/FhHRx.gif') 
+                50% 50% 
+                no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading {
+    overflow: hidden;   
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .modal {
+    display: block;
+}
+
+.top {
+	position: absolute;
+	top: 0;
+	height: 90%;
+}
+
+
+input.bottom, a.bottom {
+ 	position: absolute;
+	bottom: 0;
+}
+
+.bright-student {
+    color: green;
+    font-weight: bold;
+}
